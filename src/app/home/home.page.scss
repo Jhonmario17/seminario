@@ -10,7 +10,42 @@ swiper-slide{
   justify-content: center;
 }
 .titulo1{
+  height: 10px;
   color: black;
-  border-radius: 150px;
-  border-color: white;
+  text-shadow: 1px  0px 0px white,
+               0px  1px 0px white,
+              -1px  0px 0px white,
+               0px -1px 0px white;
+} //titulo del 
+.fichat{
+  color: black;
+  text-shadow: 1px  0px 0px white,
+               0px  1px 0px white,
+              -1px  0px 0px white,
+               0px -1px 0px white;
 }
+.tabla1{
+  color: black;
+  text-shadow: 1px  0px 0px white,
+               0px  1px 0px white,
+              -1px  0px 0px white,
+               0px -1px 0px white;
+  
+}
+tr{
+  border: 2px solid white;
+}
+td{
+  border: 2px solid white;
+}
+.img1{
+  width:50%;
+  height: 80%;
+}
+
+.principal{
+  background-image: url("/assets/img/fondo 1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}// imagen de fondo
