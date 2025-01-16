@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // importamos el router
 import {
   InfiniteScrollCustomEvent,
   IonAvatar,
@@ -13,16 +14,23 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { heart } from 'ionicons/icons';
+import { Storage } from '@ionic/storage-angular'; // importamos el storage
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],  
+  selector: 'app-intro',
+  templateUrl: './intro.page.html',
+  styleUrls: ['./intro.page.scss'],
   standalone: false,
 })
-export class HomePage implements OnInit {
-  constructor() {
+export class IntroPage implements OnInit {
+
+  constructor(
+    private router: Router,
+    private storage: Storage, //inyectamos el storage
+   ) { 
     addIcons({ heart });
+
   }
+
   items: string[] = [];
   ngOnInit() {
     this.generateItems();
@@ -41,6 +49,9 @@ export class HomePage implements OnInit {
       event.target.complete();
     }, 1000);
   }
-  
-  
+  finish(){
+    console.log('Finish');
+    this.storage.set('vilaIntro', true); // GUARDAMOS EN EL STORAGE QUE YA SE HA MOSTRADO LA INTRODUCCIÓN
+    this.router.navigateByUrl('/home'); // redireccionamos al home
+  }
 }

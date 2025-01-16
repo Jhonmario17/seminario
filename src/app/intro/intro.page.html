@@ -1,0 +1,87 @@
+<ion-content>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)" class="principal">
+    <ion-infinite-scroll-content>
+      <swiper-container>
+        <swiper-slide >
+          <h1 class="titulo1">FZ 250 ABS</h1>
+          <img class="fz250" src="/assets/img/fz250.png">
+          <h2 class="fichat">Ficha tecnica</h2><ion-icon name="construct-outline"></ion-icon>
+          <table class="tabla1">
+            <tr>
+              <td>Cilindraje</td>
+              <td>249 cc</td>        
+            </tr>
+            <tr>
+              <td>Peso (con aceite y tanque de gasolina lleno)	</td>
+              <td>149 kg</td>
+            </tr>
+            <tr>
+              <td>Potencia máxima	</td>
+              <td>20.6 Hp a 8000 rpm</td>
+            </tr>
+            <tr>
+              <td>Torque máxima</td>
+              <td>20.0 Nm a 6000 rpm</td>
+            </tr>
+            <tr>
+              <td>Tipo de motor</td>
+              <td>4 Tiempos SOHC, refrigerado por aire y aceite</td>
+            </tr>
+            <tr>
+              <td>Altura al asiento	</td>
+              <td>795 mm</td>
+            </tr>
+            <tr>
+              <td>Distancia entre ejes</td>
+              <td>1360 mm</td>
+            </tr>
+            <tr>
+              <td>Distancia mínima del piso	</td>
+              <td>160 mm</td>
+            </tr>
+            <tr>
+              <td>Diámetro por carrera</td>
+              <td>74.0×58.0 mm</td>
+            </tr>
+            <tr>
+              <td>Relación de compresión</td>
+              <td>9.8:1</td>
+            </tr>
+            <tr>
+              <td>Arranque</td>
+              <td>Electrico</td>
+            </tr>
+            <tr>
+              <td>Tipo de lubricación</td>
+              <td>Cárter húmedo</td>
+            </tr>
+            <tr>
+              <td>Capacidad de combustible</td>
+              <td>14L</td>
+            </tr>
+            <tr>
+              <td>Capacidad batería	</td>
+              <td>12V, 7 Ah</td>
+            </tr>
+          </table>
+          <ion-button color="light" shape="round"><h2>$14.500.000</h2></ion-button>
+        </swiper-slide>
+        <swiper-slide>
+          <h1 class="titulo1">MT 09</h1>
+          <img class="mt09" src="/assets/img/mt09.png">
+          <h2 class="fichat">Ficha tecnica</h2>
+        </swiper-slide>
+        <swiper-slide>
+          <h1 class="titulo1">hola slide 3</h1>
+          <ion-icon name="logo-gitlab"></ion-icon>
+          <p>hola soy el slide tres de la librerira swiper</p>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-icon class="close-icon" name="close" (click)="finish()"></ion-icon>
+          <h1 class="titulo1">hola slide 4</h1>
+          <p>hola soy el slide cuatro de la librerira swiper</p>
+        </swiper-slide>
+       </swiper-container>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+ </ion-content>
