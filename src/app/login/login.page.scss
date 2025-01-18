@@ -8,7 +8,7 @@
     color: #ffffff; /* Texto blanco */
 }
 .userlogin {
-    background-image: url("/assets/img/user.jpg");
+    background-image: url("/assets/img/fondo 2.jpg");
     margin: 20px auto;
     width: 120px;
     height: 120px;
@@ -22,7 +22,6 @@
     justify-content: center;
     align-items: center;
     height: 100%; /* Ocupa toda la pantalla */
-    background-image: url("/assets/img/fondo 2.jpg");
     color: white;
     padding: 20px;
   }
@@ -53,7 +52,6 @@
     background: rgba(255, 255, 255, 0.1); /* Fondo oscuro translúcido */
     color: white; /* Texto blanco */
     --placeholder-color: rgba(255, 255, 255, 0.7); /* Color del placeholder */
-    --highlight-color-focused: #ffc107; /* Color dorado al enfocarse */
     border: 1px solid #6c757d; /* Borde gris oscuro */
     border-radius: 5px; /* Bordes redondeados */
     margin: 10px 0; /* Espaciado entre los campos */

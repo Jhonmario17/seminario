@@ -1,10 +1,9 @@
-<div class="login">
-  <ion-content >
+<ion-content >
     <ion-avatar class="userlogin">
       <img alt="Silhouette of a person's head" src="/assets/img/user.jpg" />
     </ion-avatar>
     <br>
-    <form [formGroup]="loginForm" (ngsubmit)="loginUser(loginForm.valid)" class="formlogin">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)" class="formlogin">
       <ion-input label="Email" label-placement="floating" fill="solid" placeholder="Example@email.com" formControlName="email"></ion-input>
       <div>
         <ng-container *ngFor="let error of FormErros.email">
@@ -29,7 +28,7 @@
       </ion-button>
       <br>
       <h5> olvido su Contraseña? </h5>
+      <h5>REGISTARTE</h5>
     </form>
+    <p>{{errorMessage}}</p>
   </ion-content>
-  
-</div>
