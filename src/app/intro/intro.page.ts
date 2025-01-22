@@ -18,6 +18,6 @@ export class IntroPage implements OnInit {
   finish(){
     console.log('Finish');
     this.storage.set('vilaIntro', true); // GUARDAMOS EN EL STORAGE QUE YA SE HA MOSTRADO LA INTRODUCCIÓN
-    this.router.navigateByUrl('/home'); // redireccionamos al home
+    this.router.navigateByUrl('/menu/home'); // redireccionamos al home
   }
 }
