@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { accessibilitySharp } from 'ionicons/icons';
 
 @Injectable({
   providedIn: 'root'
