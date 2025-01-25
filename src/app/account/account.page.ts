@@ -13,6 +13,7 @@ defineCustomElements(window);
 })
 export class AccountPage implements OnInit {
   user_data: any = {
+    username: '',
     name: '',
     email: '',
     image: '',

@@ -7,3 +7,9 @@
     margin: 0 auto;
     display: block;
 }
+ion-fab{
+    ion-fab-button{
+        --background: grey;
+        --color: white;
+    }
+}

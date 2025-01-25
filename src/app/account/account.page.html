@@ -6,10 +6,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="todo1">
+<ion-content>
   <ion-title>{{user_data.name}} {{user_data.last_name}}</ion-title>
+  <br>
   <ion-avatar (click)="takePhoto()">
-    <img [src]="user_data.image" />
+    <img [src]="user_data.image ? user_data.image : '/assets/img/defaul-avatar.jpeg'">
   </ion-avatar>
   <p>Usuario: {{user_data.username}}</p>
   <p>Seguidores: {{user_data.followed_users.length}}</p>

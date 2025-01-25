@@ -47,7 +47,7 @@ export class AuthService {
       let params = {
         "user":{
           "name": data.name,
-          "last_name": data.lastname,
+          "last_name": data.last_name,
           "username": data.username,
           "email": data.email,
           "password": data.password,

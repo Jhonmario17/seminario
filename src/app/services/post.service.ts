@@ -12,7 +12,7 @@ export class PostService {
     private http: HttpClient
   ) { }
   getPosts(){
-    return new Promise ((accept, reject) =>{
+    return new Promise ((accept, reject) => {
       this.http.get(`${this.urlServer}/posts`, this.httpHeaders).subscribe(
         (data: any) =>{
           accept(data);
@@ -24,6 +24,23 @@ export class PostService {
           }else{
             reject('Error al obtener los posts');
           }  
+        }
+      )
+    });
+  }
+  createPost(post_data: any){
+    return new Promise((accept, reject) => {
+      this.http.post(`${this.urlServer}/posts`, post_data, this.httpHeaders).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        (error) => {
+          console.log(error, 'error');
+          if (error.status == 500){
+            reject('Error por favor intente mas tarde')
+          }else{
+            reject('Error al crear el post')
+          }
         }
       )
     });
