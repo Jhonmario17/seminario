@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, FormControl, Validators, ValueChangeEvent } fro
 import { PostService } from '../services/post.service';
 import { Storage } from '@ionic/storage-angular';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router'; // importamos el router
+import { NavController } from '@ionic/angular';
 defineCustomElements(window);
 
 @Component({
@@ -29,7 +31,10 @@ export class AddPostModalPage implements OnInit {
     private formBuilder: FormBuilder,
     private postService: PostService,
     private storage: Storage,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router,
+    private navCtrl: NavController,
+
   ) { 
     this.addPostForm = this.formBuilder.group({
       description: new FormControl('', Validators.compose([
@@ -78,5 +83,9 @@ export class AddPostModalPage implements OnInit {
         console.log(error, 'error');
       }
     );
+  }
+  cancela(){
+    console.log("cancelado");
+    this.modalController.dismiss({null: null});
   }
 }

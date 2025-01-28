@@ -10,9 +10,18 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+    <ion-item (click)="account_c()">
+      <ion-icon name="person-circle-outline"></ion-icon> Cuenta 
+    </ion-item>
     <ion-content>
+      <ion-item (click)="inicio()">
+        <ion-icon name="home-outline"></ion-icon> Inicio 
+      </ion-item>
+      <ion-item (click)="buscarUsers()">
+        <ion-icon name="people-circle-outline"></ion-icon> Buscar Usuarios 
+      </ion-item>
       <ion-item (click)="log_out()">
-        Cerrar sesión <ion-icon name="log-out-outline"></ion-icon>
+        <ion-icon name="log-out-outline"></ion-icon> Cerrar sesión 
       </ion-item>
     </ion-content>
   </ion-menu>
