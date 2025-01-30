@@ -4,10 +4,6 @@ import { introGuard } from './guards/intro.guard';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canActivate: [LoginGuard, introGuard]
-  // },
   {
     path: '',
     redirectTo: 'menu/home',

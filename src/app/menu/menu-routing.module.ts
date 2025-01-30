@@ -21,10 +21,6 @@ const routes: Routes = [
       {
         path: 'search-users',
         loadChildren: () => import('../search-users/search-users.module').then( m => m.SearchUsersPageModule)
-      },  
-      {
-        path: 'update-profile',
-        loadChildren: () => import('../update-profile/update-profile.module').then( m => m.UpdateProfilePageModule)
       }
     ]
   }

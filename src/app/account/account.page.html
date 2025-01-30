@@ -1,18 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons>
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>{{user_data.name}} {{user_data.last_name}}</h1>
+<ion-content class="todo1">
+  <h1 class="title">{{user_data.name}} {{user_data.last_name}}</h1>
   <br>
-  <ion-avatar (click)="takePhoto()">
-    <img [src]="user_data.image ? user_data.image : '/assets/img/defaul-avatar.jpeg'">
+  <ion-avatar (click)="presentPhotoOptions()" class="image">
+    <img [src]="user_data.image ? user_data.image : '/assets/img/default-avatar.jpeg'">
   </ion-avatar>
-  <p>Usuario: {{user_data.username}}</p>
-  <p>Seguidores: {{user_data.followed_users.length}}</p>
-  <p>Siguendo: {{user_data.following_users.length}}</p>
+  <div class="divv">
+    <div class="div1">
+      <p>Usuario </p>
+      <p>{{user_data.username}}</p>
+    </div>
+    <div class="div2">
+      <p>Seguidores</p>
+      <p>{{user_data?.followers?.length}}</p>      
+    </div>
+    <div class="div3">
+      <p>Siguendo</p>
+      <p >{{user_data?.followees?.length}}</p>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="grey" (click)="updateProfile()">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

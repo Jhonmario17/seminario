@@ -1,3 +1,43 @@
 .todo1{
     background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+.image{
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    border: 3px solid white; /* Borde dorado alrededor del avatar */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+}
+.div1{
+    margin: auto;
+    width: 300px;
+    text-align: center;
+
+}
+.div2{
+    margin-right: auto;
+    width: 100px;
+    text-align: center;
+
+}
+.div3{
+    margin-left: auto;
+    width: 100px;
+    text-align: center;
+
+}
+.divv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.p1{
+    width: 100px; 
 }

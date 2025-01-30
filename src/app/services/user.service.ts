@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { retry } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,7 @@ export class UserService {
       this.http.post(`${this.urlServer}/update/${user.id}`, user_params, this.httpHeaders).subscribe(
         (data: any)=>{
           accept(data);
+          // this.userInfoUpdate.emit(data.user);
         },
         (error) => {
           console.log(error, 'error');
@@ -50,8 +51,51 @@ export class UserService {
       )
     });
   }
+
   listUsers(page: number, perPage: number, query: string = ''){
     const url = `${this.urlServer}/list_users?page=${page}&per_page=${perPage}&query=${query}`;
     return this.http.get(url).toPromise();
+  }
+
+  followUser( user_id: any, followee_id: any ){
+    const follow_params = {
+      followee_id: followee_id
+    }
+    return new Promise((accept, reject) => {
+      this.http.post(`${this.urlServer}/follow/${user_id}`, follow_params, this.httpHeaders).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        (error) => {
+          console.log( error, 'error');
+          if ( error.status == 500 ){
+            reject('Error por favor intenta mas tarde');
+          }else{
+            reject('Error al serguir al usuario');
+          }
+        }
+      )
+    });
+  }
+
+unfollowUser( user_id: any, unfollowed_id: any ){
+    const follow_params = {
+      followee_id: unfollowed_id
+    }
+    return new Promise((accept, reject) => {
+      this.http.post(`${this.urlServer}/unfollow/${user_id}`, follow_params, this.httpHeaders).subscribe(
+        (data: any) => {
+          accept(data);
+        },
+        (error) => {
+          console.log( error, 'error');
+          if ( error.status == 500 ){
+            reject('Error por favor intenta mas tarde');
+          }else{
+            reject('Error al dejar de serguir al usuario');
+          }
+        }
+      )
+    });
   }
 }

@@ -19,9 +19,9 @@
       <ion-label>
         <h2>{{ user.name }} {{user.last_name}}</h2>
       </ion-label>
-      <ion-button slot="end" (click)="toggleFollow(user)">
-        <ion-icon [name]="user.is_following ? 'heart-dislike-outline' : 'heart-outline'"></ion-icon>
-      </ion-button>
+      <!-- <ion-button slot="end" (click)="toggleFollow(user)"> -->
+        <ion-icon slot="end" (click)="toggleFollow(user)" [name]="user.is_following ? 'heart-dislike' : 'heart'" color="white"></ion-icon>
+      <!-- </ion-button> -->
     </ion-item>
   </ion-list>
 </ion-content>
