@@ -42,7 +42,7 @@ export class AuthService {
       )
     });
   }
-  register(data:any){
+  register(data: any){
     return new Promise(( accept, reject) => {
       let params = {
         "user":{

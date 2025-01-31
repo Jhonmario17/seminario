@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -8,6 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
   urlServer = 'http://51.79.26.171';
   httpHeaders = { headers: new HttpHeaders({"Content-Type": "application/json" })};
+  
+    userUpdate: EventEmitter<any> = new EventEmitter();
   
   constructor(
     private http: HttpClient
@@ -38,7 +40,6 @@ export class UserService {
       this.http.post(`${this.urlServer}/update/${user.id}`, user_params, this.httpHeaders).subscribe(
         (data: any)=>{
           accept(data);
-          // this.userInfoUpdate.emit(data.user);
         },
         (error) => {
           console.log(error, 'error');
@@ -93,6 +94,32 @@ unfollowUser( user_id: any, unfollowed_id: any ){
             reject('Error por favor intenta mas tarde');
           }else{
             reject('Error al dejar de serguir al usuario');
+          }
+        }
+      )
+    });
+  }
+
+  UpdateDataUser(user: any){
+    let params = {
+      "user":{
+        "name": user.name,
+        "last_name": user.last_name,
+      }
+    }
+    console.log(user.id, params)
+    return new Promise((accept, reject) =>{
+      this.http.post(`${this.urlServer}/update/${user.id}`, params, this.httpHeaders).subscribe(
+        (data: any)=>{
+          accept(data);
+          this.userUpdate.emit(data.user);
+        },
+        (error) => {
+          console.log(error, 'error');
+          if(error.status == 500){
+            reject('Error por favor intenta mas tarde');
+          }else{
+            reject('Error al actualizar el usuario');
           }
         }
       )

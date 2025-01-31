@@ -5,12 +5,36 @@
 </ion-header>
 
 <ion-content >
-  <form action="">
-    <ion-input label="Nombre" label-placement="floating" fill="solid"  ></ion-input>
-    <ion-input label="Apellido" label-placement="floating" fill="solid" placeholder="castro"></ion-input>
-    <br>
-    
-    <ion-button color="light" shape="round" type="submit" (click)="updateuser()" >Actualizar</ion-button>
-    <ion-button color="light" shape="round" type="submit" (click)="cancela()" >Cancelar</ion-button>
+  <form [formGroup]="updateUserForm" (ngSubmit)="updateUser(updateUserForm.value)">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-input class="global-input" label="Nombre" label-placement="floating" fill="solid"
+            placeholder="Digite su nombre" formControlName="name"></ion-input>
+          <div class="global-container-label-message">
+            <ng-container *ngFor="let error of FormErros.name">
+              <ion-label color="light"
+                *ngIf="(updateUserForm.get('name')?.hasError(error.type) && updateUserForm.get('name')?.dirty)">
+                {{ error.message }}
+              </ion-label>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-input class="global-input" label="Apellido" label-placement="floating" fill="solid"
+            placeholder="Digite su apellido" formControlName="last_name"></ion-input>
+          <div class="global-container-label-message">
+            <ng-container *ngFor="let error of FormErros.last_name">
+              <ion-label color="light"
+                *ngIf="(updateUserForm.get('last_name')?.hasError(error.type) && updateUserForm.get('last_name')?.dirty)">
+                {{ error.message }}
+              </ion-label>
+            </ng-container>
+          </div>
+        </ion-col>
+        <ion-button color="light" shape="round" type="submit"  [disabled]="!updateUserForm.valid" >Actualizar</ion-button>
+        <ion-button color="light" shape="round"  (click)="cancela()" >Cancelar</ion-button>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

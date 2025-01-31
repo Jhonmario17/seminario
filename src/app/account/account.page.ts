@@ -7,12 +7,14 @@ defineCustomElements(window);
 import { ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { UpdateProfilePage } from '../update-profile/update-profile.page';
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
-  standalone: false
+  standalone: false,
 })
+
 export class AccountPage implements OnInit {
   user_data: any = {
     username: '',
@@ -22,12 +24,12 @@ export class AccountPage implements OnInit {
     followee: [],
     followers: []
   }
+  isLoading: boolean = false;
   constructor(
     private modalController: ModalController,
     private userService: UserService,
     private storage: Storage,
-    public alertController: AlertController
-
+    private alertController: AlertController,
   ) { }
 
   async ngOnInit() {
@@ -58,12 +60,15 @@ export class AccountPage implements OnInit {
   }
 
   async update(){
+    this.isLoading = true;
     this.userService.updateUser(this.user_data).then(
       (data) => {
         console.log(data);
+        this.isLoading = false;
       }
     ).catch(
       (error) => {
+        this.isLoading = false;
         console.log(error);
       }
     )
@@ -106,4 +111,5 @@ export class AccountPage implements OnInit {
         });
         return await modal.present();
   }
+
 }

@@ -1,12 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
+      <ion-title>Perfil</ion-title>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="todo1">
+  <ion-progress-bar type="indeterm inate" *ngIf="isLoading"></ion-progress-bar>
   <h1 class="title">{{user_data.name}} {{user_data.last_name}}</h1>
   <br>
   <ion-avatar (click)="presentPhotoOptions()" class="image">
